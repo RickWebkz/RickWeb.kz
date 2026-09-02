@@ -1,0 +1,1420 @@
+<!DOCTYPE html><html lang="kk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"><title>RickWeb.kz — DEMO</title><style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Orbitron:wght@600;700;800;900&display=swap');
+
+:root {
+    --bg: #050907;
+    --bg2: #08130d;
+    --panel: #0d1d14;
+    --panel2: #11291a;
+    --green: #65f54c;
+    --lime: #b6ff3d;
+    --cyan: #3cffcf;
+    --text: #f2fff4;
+    --muted: #8ea697;
+    --border: rgba(182, 255, 61, .16);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Inter, Arial, sans-serif;
+    background:
+        radial-gradient(circle at 50% -10%, rgba(101, 245, 76, .17), transparent 32%),
+        radial-gradient(circle at 100% 30%, rgba(60, 255, 207, .06), transparent 25%),
+        var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+}
+
+/* BACKGROUND PARTICLES */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+
+    background-image:
+        radial-gradient(circle, rgba(255,255,255,.55) 1px, transparent 1px);
+
+    background-size: 55px 55px;
+
+    opacity: .12;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    min-height: 75vh;
+    padding: 0 7%;
+    position: relative;
+    overflow: hidden;
+}
+
+/* PORTAL */
+
+.portal-bg {
+    position: absolute;
+
+    width: 620px;
+    height: 620px;
+
+    left: 50%;
+    top: 90px;
+
+    transform: translateX(-50%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(circle,
+            #f5ffd9 0 2%,
+            #c8ff3d 3% 7%,
+            #71f55c 8% 14%,
+            rgba(29, 122, 65, .85) 26%,
+            rgba(7, 46, 24, .65) 43%,
+            transparent 66%
+        );
+
+    filter:
+        drop-shadow(0 0 50px rgba(101, 245, 76, .4));
+
+    opacity: .75;
+
+    animation: portalPulse 6s ease-in-out infinite;
+}
+
+@keyframes portalPulse {
+
+    50% {
+        transform: translateX(-50%) scale(1.08);
+        filter:
+            drop-shadow(0 0 90px rgba(101, 245, 76, .6));
+    }
+
+}
+
+/* NAVIGATION */
+
+nav {
+    height: 80px;
+
+    position: relative;
+    z-index: 5;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-bottom:
+        1px solid var(--border);
+}
+
+.logo {
+    font-family: Orbitron, sans-serif;
+
+    font-size: 23px;
+
+    font-weight: 900;
+
+    letter-spacing: -1px;
+}
+
+.logo span {
+    color: var(--lime);
+}
+
+.nav-links {
+    display: flex;
+    gap: 22px;
+}
+
+.nav-links a {
+    text-decoration: none;
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    transition: .2s;
+}
+
+.nav-links a:hover {
+    color: var(--lime);
+}
+
+/* HERO */
+
+.hero {
+    min-height: 620px;
+
+    position: relative;
+    z-index: 2;
+
+    display: grid;
+    place-items: center;
+
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 850px;
+}
+
+.badge {
+    display: inline-block;
+
+    padding: 9px 15px;
+
+    border-radius: 100px;
+
+    border:
+        1px solid var(--border);
+
+    background:
+        rgba(5, 15, 9, .65);
+
+    color: var(--lime);
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+.hero h1 {
+
+    margin:
+        22px 0 18px;
+
+    font-family:
+        Orbitron, sans-serif;
+
+    font-size:
+        clamp(55px, 11vw, 130px);
+
+    line-height: .9;
+
+    letter-spacing:
+        -6px;
+}
+
+.hero h1 span {
+    color: var(--lime);
+
+    text-shadow:
+        0 0 35px rgba(182,255,61,.35);
+}
+
+.hero p {
+
+    max-width: 620px;
+
+    margin:
+        auto;
+
+    color:
+        #b7c9bc;
+
+    line-height:
+        1.7;
+
+    font-size:
+        17px;
+}
+
+.hero-buttons {
+
+    margin-top:
+        30px;
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    gap:
+        12px;
+
+    flex-wrap:
+        wrap;
+}
+
+.btn {
+
+    border:
+        none;
+
+    padding:
+        15px 22px;
+
+    border-radius:
+        15px;
+
+    font-family:
+        Inter;
+
+    font-weight:
+        800;
+
+    cursor:
+        pointer;
+
+    transition:
+        .25s;
+}
+
+.btn:hover {
+    transform:
+        translateY(-3px);
+}
+
+.btn-primary {
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--lime),
+            var(--green)
+        );
+
+    color:
+        #071009;
+
+    box-shadow:
+        0 10px 35px
+        rgba(101,245,76,.18);
+}
+
+.btn-secondary {
+
+    color:
+        white;
+
+    background:
+        rgba(8, 25, 14, .7);
+
+    border:
+        1px solid
+        rgba(255,255,255,.1);
+}
+
+/* =========================
+   MAIN
+========================= */
+
+main {
+
+    max-width:
+        1450px;
+
+    margin:
+        auto;
+
+    padding:
+        60px 7%;
+}
+
+section {
+    margin-bottom:
+        80px;
+}
+
+.kicker {
+
+    color:
+        var(--lime);
+
+    font-size:
+        11px;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        2px;
+}
+
+.section-title {
+
+    font-size:
+        clamp(34px, 5vw, 60px);
+
+    margin:
+        10px 0;
+}
+
+.section-description {
+
+    color:
+        var(--muted);
+
+    max-width:
+        650px;
+
+    line-height:
+        1.7;
+}
+
+/* =========================
+   SEASON CARDS
+========================= */
+
+.season-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(190px, 1fr));
+
+    gap:
+        16px;
+
+    margin-top:
+        30px;
+}
+
+.season-card {
+
+    min-height:
+        250px;
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
+
+    border-radius:
+        25px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    background:
+        linear-gradient(
+            145deg,
+            #183a25,
+            #08140d
+        );
+
+    padding:
+        20px;
+
+    color:
+        white;
+
+    text-align:
+        left;
+
+    cursor:
+        pointer;
+
+    transition:
+        .3s;
+}
+
+.season-card::after {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    width:
+        190px;
+
+    height:
+        190px;
+
+    right:
+        -65px;
+
+    top:
+        -55px;
+
+    border-radius:
+        50%;
+
+    background:
+        radial-gradient(circle,
+            #efffd7 0 3%,
+            var(--lime) 4% 9%,
+            var(--green) 10% 18%,
+            #164f2e 38%,
+            transparent 68%
+        );
+
+    opacity:
+        .85;
+}
+
+.season-card:hover {
+
+    transform:
+        translateY(-7px);
+
+    border-color:
+        rgba(182,255,61,.45);
+}
+
+.season-card.active {
+
+    border-color:
+        var(--lime);
+
+    box-shadow:
+        0 0 35px
+        rgba(182,255,61,.13);
+}
+
+.season-number {
+
+    position:
+        absolute;
+
+    z-index:
+        2;
+
+    font-family:
+        Orbitron;
+
+    font-size:
+        13px;
+
+    color:
+        var(--muted);
+}
+
+.season-name {
+
+    position:
+        absolute;
+
+    bottom:
+        20px;
+
+    z-index:
+        2;
+
+    font-size:
+        21px;
+
+    font-weight:
+        900;
+}
+
+/* =========================
+   EPISODE PANEL
+========================= */
+
+.episode-panel {
+
+    padding:
+        clamp(20px, 4vw, 45px);
+
+    border-radius:
+        32px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(17,41,26,.98),
+            rgba(5,13,8,.98)
+        );
+
+    border:
+        1px solid
+        var(--border);
+}
+
+.episode-top {
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        end;
+
+    gap:
+        20px;
+
+    flex-wrap:
+        wrap;
+}
+
+.episode-season {
+
+    font-size:
+        30px;
+
+    font-weight:
+        900;
+
+    margin:
+        8px 0;
+}
+
+.select-group {
+
+    min-width:
+        min(100%, 420px);
+}
+
+.select-group label {
+
+    display:
+        block;
+
+    margin-bottom:
+        8px;
+
+    font-size:
+        11px;
+
+    font-weight:
+        800;
+
+    color:
+        var(--muted);
+
+    letter-spacing:
+        1px;
+}
+
+select {
+
+    width:
+        100%;
+
+    padding:
+        16px;
+
+    border-radius:
+        15px;
+
+    background:
+        #07130c;
+
+    color:
+        white;
+
+    border:
+        1px solid
+        var(--border);
+
+    outline:
+        none;
+
+    font-size:
+        15px;
+}
+
+/* =========================
+   VIDEO PLAYER
+========================= */
+
+.video-wrapper {
+
+    width:
+        100%;
+
+    aspect-ratio:
+        16 / 9;
+
+    margin-top:
+        28px;
+
+    border-radius:
+        24px;
+
+    overflow:
+        hidden;
+
+    background:
+        #000;
+
+    border:
+        1px solid
+        rgba(255,255,255,.1);
+
+    box-shadow:
+        0 0 50px
+        rgba(101,245,76,.08);
+}
+
+.video-wrapper iframe {
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    border:
+        none;
+
+    display:
+        block;
+}
+
+/* =========================
+   INFO
+========================= */
+
+.credit-box {
+
+    margin-top:
+        25px;
+
+    padding:
+        22px;
+
+    border-radius:
+        18px;
+
+    background:
+        rgba(182,255,61,.05);
+
+    border:
+        1px solid
+        var(--border);
+
+    color:
+        var(--muted);
+
+    line-height:
+        1.7;
+}
+
+.credit-box strong {
+    color:
+        var(--lime);
+}
+
+/* FOOTER */
+
+footer {
+
+    padding:
+        50px 7%;
+
+    text-align:
+        center;
+
+    color:
+        var(--muted);
+
+    border-top:
+        1px solid
+        var(--border);
+}
+
+/* MOBILE */
+
+@media(max-width: 650px) {
+
+    header {
+        padding:
+            0 5%;
+    }
+
+    nav {
+        height:
+            70px;
+    }
+
+    .nav-links {
+        display:
+            none;
+    }
+
+    .portal-bg {
+
+        width:
+            420px;
+
+        height:
+            420px;
+    }
+
+    .hero {
+        min-height:
+            560px;
+    }
+
+    .hero h1 {
+        letter-spacing:
+            -3px;
+    }
+
+    main {
+        padding:
+            45px 5%;
+    }
+
+    .season-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .season-card {
+        min-height:
+            200px;
+    }
+
+}
+</style></head><body><header><div class="portal-bg"></div>
+
+
+<nav>
+
+    <div class="logo">
+
+        RICK<span>WEB.KZ</span>
+
+    </div>
+
+
+    <div class="nav-links">
+
+        <a href="#seasons">
+            Маусымдар
+        </a>
+
+        <a href="#episodes">
+            Сериялар
+        </a>
+
+        <a href="#about">
+            Жоба туралы
+        </a>
+
+    </div>
+
+</nav>
+
+
+<div class="hero">
+
+    <div class="hero-content">
+
+        <div class="badge">
+            🌀 KAZAKH SERIES PLATFORM • DEMO
+        </div>
+
+
+        <h1>
+
+            RICK<span>WEB</span>
+
+        </h1>
+
+
+        <p>
+
+            Маусымды таңдаңыз.
+            Серияны таңдаңыз.
+            Барлығы бір ыңғайлы заманауи платформада.
+
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <button
+                class="btn btn-primary"
+                onclick="goToSeasons()">
+
+                Маусымды таңдау ↓
+
+            </button>
+
+
+            <button
+                class="btn btn-secondary"
+                onclick="goToEpisodes()">
+
+                ▶ Қазір көру
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+</header><main><!-- =========================
+     SEASONS
+========================= --><section id="seasons"><div class="kicker">
+
+    01 • SEASON SELECT
+
+</div>
+
+
+<h2 class="section-title">
+
+    Маусымды таңда
+
+</h2>
+
+
+<p class="section-description">
+
+    Әр маусымға кейін өзіңнің суреттеріңді
+    немесе иконкаларыңды қосуға болады.
+
+</p>
+
+
+<div
+    class="season-grid"
+    id="seasonGrid">
+
+</div>
+
+</section><!-- =========================
+     EPISODES
+========================= --><section
+    id="episodes"
+    class="episode-panel"><div class="episode-top">
+
+
+    <div>
+
+        <div class="kicker">
+
+            02 • EPISODE SELECT
+
+        </div>
+
+
+        <div
+            class="episode-season"
+            id="seasonTitle">
+
+            1-МАУСЫМ
+
+        </div>
+
+    </div>
+
+
+
+    <div class="select-group">
+
+        <label>
+
+            СЕРИЯНЫ ТАҢДА
+
+        </label>
+
+
+        <select
+            id="episodeSelect">
+
+        </select>
+
+    </div>
+
+
+</div>
+
+
+
+<!-- VIDEO PLAYER -->
+
+<div class="video-wrapper">
+
+    <iframe
+        id="videoPlayer"
+
+        src=""
+
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+
+        allowfullscreen>
+
+    </iframe>
+
+</div>
+
+
+
+<div class="credit-box">
+
+    <strong>
+        Қазақша дубляж:
+    </strong>
+
+    ЖалғызDub
+
+    <br><br>
+
+    RickWeb.kz • DEMO VERSION
+
+</div>
+
+</section><section id="about"><div class="kicker">
+
+    03 • ABOUT
+
+</div>
+
+
+<h2 class="section-title">
+
+    RickWeb.kz
+
+</h2>
+
+
+<p class="section-description">
+
+    Қазақша контентті ыңғайлы түрде
+    жинақтауға арналған заманауи веб-интерфейс.
+
+</p>
+
+</section></main><footer><div class="logo">
+
+    RICK<span>WEB.KZ</span>
+
+</div>
+
+
+<p>
+
+    DEMO VERSION • 2026
+
+</p>
+
+</footer><script>
+
+/* =====================================
+   RICKWEB.KZ VIDEO CATALOG
+
+   ӘР ЖАҢА СЕРИЯНЫ ОСЫ ЖЕРГЕ ҚОСАСЫҢ.
+
+   Bunny Stream player URL форматы:
+
+   https://player.mediadelivery.net/play/LIBRARY_ID/VIDEO_ID
+
+===================================== */
+
+
+const catalog = {
+
+
+    /* =================
+       SEASON 1
+    ================= */
+
+    1: [
+
+        {
+
+            title:
+            "1-бөлім",
+
+            url:
+            "https://player.mediadelivery.net/play/742239/af10d988-85e0-47d7-8865-1ca7075e65e3"
+
+        }
+
+    ],
+
+
+    /* =================
+       SEASON 2
+    ================= */
+
+    2: [],
+
+
+    /* =================
+       SEASON 3
+    ================= */
+
+    3: [],
+
+
+    /* =================
+       SEASON 4
+    ================= */
+
+    4: [],
+
+
+    /* =================
+       SEASON 5
+    ================= */
+
+    5: [],
+
+
+    /* =================
+       SEASON 6
+    ================= */
+
+    6: []
+
+};
+
+
+
+let activeSeason = 1;
+
+
+
+const seasonGrid =
+document.getElementById(
+    "seasonGrid"
+);
+
+
+const episodeSelect =
+document.getElementById(
+    "episodeSelect"
+);
+
+
+const seasonTitle =
+document.getElementById(
+    "seasonTitle"
+);
+
+
+const videoPlayer =
+document.getElementById(
+    "videoPlayer"
+);
+
+
+
+/* =====================================
+   SEASON CARDS
+===================================== */
+
+
+function renderSeasons() {
+
+
+    seasonGrid.innerHTML = "";
+
+
+    for (
+        let i = 1;
+        i <= 6;
+        i++
+    ) {
+
+
+        const card =
+        document.createElement(
+            "button"
+        );
+
+
+        card.className =
+        "season-card";
+
+
+        if (
+            i === activeSeason
+        ) {
+
+            card.classList.add(
+                "active"
+            );
+
+        }
+
+
+        card.innerHTML = `
+
+            <div
+                class="season-number">
+
+                SEASON 0${i}
+
+            </div>
+
+
+            <div
+                class="season-name">
+
+                ${i}-МАУСЫМ
+
+            </div>
+
+        `;
+
+
+        card.onclick =
+        function() {
+
+            selectSeason(i);
+
+        };
+
+
+        seasonGrid.appendChild(
+            card
+        );
+
+    }
+
+}
+
+
+
+/* =====================================
+   SELECT SEASON
+===================================== */
+
+
+function selectSeason(
+    seasonNumber
+) {
+
+
+    activeSeason =
+    seasonNumber;
+
+
+    seasonTitle.textContent =
+    seasonNumber +
+    "-МАУСЫМ";
+
+
+    episodeSelect.innerHTML =
+    "";
+
+
+    const episodes =
+    catalog[
+        seasonNumber
+    ];
+
+
+
+    if (
+        episodes.length === 0
+    ) {
+
+
+        const option =
+        document.createElement(
+            "option"
+        );
+
+
+        option.textContent =
+        "Сериялар әлі қосылмаған";
+
+
+        option.value =
+        "";
+
+
+        episodeSelect.appendChild(
+            option
+        );
+
+
+        videoPlayer.src =
+        "";
+
+
+    }
+
+
+    else {
+
+
+        episodes.forEach(
+            function(
+                episode,
+                index
+            ) {
+
+
+                const option =
+                document.createElement(
+                    "option"
+                );
+
+
+                option.textContent =
+                episode.title;
+
+
+                option.value =
+                index;
+
+
+                episodeSelect.appendChild(
+                    option
+                );
+
+
+            }
+        );
+
+
+
+        loadEpisode(
+            0
+        );
+
+    }
+
+
+
+    renderSeasons();
+
+
+}
+
+
+
+/* =====================================
+   LOAD EPISODE
+===================================== */
+
+
+function loadEpisode(
+    index
+) {
+
+
+    const episode =
+    catalog[
+        activeSeason
+    ][
+        index
+    ];
+
+
+
+    if (
+        !episode
+    ) {
+
+        videoPlayer.src =
+        "";
+
+        return;
+
+    }
+
+
+
+    videoPlayer.src =
+    episode.url;
+
+
+}
+
+
+
+/* =====================================
+   EPISODE SELECT
+===================================== */
+
+
+episodeSelect.addEventListener(
+    "change",
+    function() {
+
+
+        loadEpisode(
+            this.value
+        );
+
+
+    }
+);
+
+
+
+/* =====================================
+   BUTTONS
+===================================== */
+
+
+function goToSeasons() {
+
+    document
+    .getElementById(
+        "seasons"
+    )
+    .scrollIntoView({
+
+        behavior:
+        "smooth"
+
+    });
+
+}
+
+
+
+function goToEpisodes() {
+
+    document
+    .getElementById(
+        "episodes"
+    )
+    .scrollIntoView({
+
+        behavior:
+        "smooth"
+
+    });
+
+}
+
+
+
+/* =====================================
+   INITIAL LOAD
+===================================== */
+
+
+renderSeasons();
+
+
+selectSeason(
+    1
+);
+
+
+</script></body>
+</html>
